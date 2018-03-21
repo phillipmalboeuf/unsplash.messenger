@@ -27,8 +27,8 @@ class Model():
 
 
   @classmethod
-  def tail(cls, document_filter={}):
-    return db[cls.collection_name].find(document_filter, cursor_type=CursorType.TAILABLE)
+  def watch(cls, document_filter={}):
+    return db[cls.collection_name].watch([{'$match': {'operationType': 'insert'}}])
 
 
   @classmethod
