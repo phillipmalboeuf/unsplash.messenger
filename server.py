@@ -44,7 +44,7 @@ class Mess(WebSocketHandler):
 
 if __name__ == '__main__':
   server = Application([('/', Mess)], debug=True)
-  server.listen(8666)
+  server.listen(5000)
   IOLoop.current().start()
 
 
