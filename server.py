@@ -25,7 +25,8 @@ class Mess(WebSocketHandler):
     self.stream.start()
 
   def on_message(self, message):
-    Message.create({'body': message})
+    message = json.loads(message)
+    Message.create({'body': message['body'], 'username': message['username']})
 
   def on_close(self):
     self.stream.join(0)
